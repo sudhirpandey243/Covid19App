@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Risk Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<div> 
+    <label for="age">Age</label> 
+    <input type="text" id="age" name="age"> 
+    <br> 
+    <label for="w_class">Gender</label> 
+    <select id="w_class" name="w_class"> 
+      <option value="1">Male</option> 
+      <option value="2">Female</option> 
+      
+    </select> 
+    <br> 
+
+    <label for="edu">Do you smoke</label> 
+    <select id="edu" name="edu"> 
+      <option value="1">Yes</option> 
+      <option value="5">No</option> 
+     
+    </select> 
+    <br> 
+
+    <label for="martial_stat">Do you have any of these low impact symptoms? (Headache, Sore Throat, Chest Pain, Loss of Taste or Smell, Vomiting)</label> 
+    <select id="martial_stat" name="martial_stat"> 
+      <option value="10">Yes</option> 
+      <option value="1">No</option> 
+       
+    </select> 
+    <br> 
+    <label for="occup">Do you have any of these high impact symptoms?  (Fever, Cough, Shortness of Breath, Muscle Pain</label> 
+    <select id="occup" name="occup"> 
+      <option value="20">Yes</option> 
+      <option value="1">No</option> 
+     
+    </select> 
+    <br> 
+
+    <label for="relation">Do you have any of these health conditions? (Heart Disease, Asthma, Kidney Disease, Diabetes, Cancer, Pregnancy) </label> 
+    <select id="relation" name="relation"> 
+      <option value="100">Yes</option> 
+      <option value="5">No</option> 
+      
+    </select> 
+    <br> 
+
+    <label for="race">Are You Following These Guidelines (Frequent Hand wash with soap for at least 20 Seconds, Wearing Mask , Social Distancing, Self Quarantine, if unwell ) Consistently</label> 
+    <select id="race" name="race"> 
+      <option value="0">Yes</option> 
+      <option value="10">No</option> 
+     
+    </select> 
+    <br> 
+    
+   
+    <label for="native-country">Have You Had Any of These Exposures in Last 4 Days(Travelled to Containment Zone, Living in Containment Zone, Face to Face Contact with a Confirmed Case of COVID19 for more then 15)</label> 
+    <select id="native-country" name="native-country"> 
+      <option value="0">Yes</option> 
+      <option value="1">No</option> 
+      
+     
+    </select> 
+    <br> 
+    <input type="submit" value="Submit"> 
+  </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>

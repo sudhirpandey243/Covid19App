@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Risk Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<div> 
+    <label for="age">Age</label> 
+    <input type="text" id="age" name="age"> 
+    <BR>
+<P>1. Gender:<BR>
+<input type="radio" name="1.The word which means house is" value="1">Male<BR>
+<input type="radio" name="1.The word which means house is" value="2">Female<BR>
+
+</p>
+
+<P>2. Do you smoke:<BR>
+<input type="radio" name="2. The word which means fish is" value="5">Yes<BR>
+<input type="radio" name="2. The word which means fish is" value="1">No<BR>
+
+</p>
+
+<P>3. Do you have any of these low impact symptoms?(Headache, Sore Throat, Chest Pain, Loss of Taste or Smell, Vomiting):<BR>
+<input type="radio" name="3. The word which means suitcase is" value="10">Yes<BR>
+<input type="radio" name="3. The word which means suitcase is" value="1">No<BR>
+
+</p>
+
+<P>4. Do you have any of these high impact symptoms? (Fever, Cough, Shortness of Breath, Muscle Pain):<BR>
+<input type="radio" name="4. The word which means suitcase is" value="20">Yes<BR>
+<input type="radio" name="4. The word which means suitcase is" value="1">No<BR>
+</p>
+
+<P>5. Do you have any of these health conditions? (Heart Disease, Asthma, Kidney Disease, Diabetes, Cancer, Pregnancy):<BR>
+<input type="radio" name="5. The word which means suitcase is" value="100">Yes<BR>
+<input type="radio" name="5. The word which means suitcase is" value="5">No<BR>
+</p>
+
+<P>6. Are You Following These Guidelines Consistently(Frequent Hand wash with soap for at least 20 Seconds, Wearing Mask , Social Distancing, Self Quarantine, if unwell ):<BR>
+<input type="radio" name="6. The word which means suitcase is" value="10">Yes<BR>
+<input type="radio" name="6. The word which means suitcase is" value="0">No<BR>
+</p>
+
+<P>7. Have You Had Any of These Exposures in Last 4 Days(Travelled to Containment Zone, Living in Containment Zone, Face to Face Contact with a Confirmed Case of COVID19 for :<BR>
+<input type="radio" name="7. The word which means suitcase is" value="1">Yes<BR>
+<input type="radio" name="7. The word which means suitcase is" value="0">No<BR>
+</p>
+    <input type="submit" value="Submit"> 
+  </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
